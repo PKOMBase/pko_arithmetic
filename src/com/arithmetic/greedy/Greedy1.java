@@ -37,7 +37,7 @@ public class Greedy1 {
         int[] c = new int[] { 3, 2, 1, 3, 0, 2 };
         int n = 620;
         int count = 0;
-        // 从大面值开始
+        // 从大面值开始，优先处理
         for (int i = v.length - 1; i >= 0; i--) {
             // 使用硬币的数量
             int t = Math.min(n / v[i], c[i]);
