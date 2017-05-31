@@ -72,11 +72,15 @@ public class DeepExhaust2 {
         // 将W替换为.
         field[x][y] = '.';
 
-        // 取该位置八连通位置(x、y分别3种，共9种)，排除.和院外位置
+        // 取该位置八连通位置(x、y分别3种，共9种)，排除自己、.和院外位置
         for (int dx = -1; dx <= 1; dx++) {
             for (int dy = -1; dy <= 1; dy++) {
                 int newx = x + dx;
                 int newy = y + dy;
+                // 自己
+                if (newx == x && newy == y) {
+                    continue;
+                }
                 // x坐标越界
                 if (newx < 0 || newx >= n) {
                     continue;
