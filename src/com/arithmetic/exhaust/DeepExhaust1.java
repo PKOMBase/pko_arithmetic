@@ -25,7 +25,7 @@ package com.arithmetic.exhaust;
  * @author sunjie at 2017年5月26日
  *
  */
-public class DeepExhaust {
+public class DeepExhaust1 {
     static final int n = 4, k = 11;
     static final int[] a = new int[] { 1, 2, 4, 7 };
 
