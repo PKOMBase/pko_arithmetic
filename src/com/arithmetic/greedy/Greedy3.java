@@ -4,29 +4,65 @@ package com.arithmetic.greedy;
  * 
  * **题目：
  * 
+ * 长度为N的字符串S，要构造一个长度为N的字符串T。起初，T是一个空串，随后反复进行如下任意操作：
  * 
+ * -从S的头部移除一个字符，加到T的尾部<BR>
+ * -从S的尾部移除一个字符，加到T的尾部<BR>
+ * 
+ * 目标是构造字典顺序（逐位自然比较）最小的T
  * 
  * 输入：
  * 
- * n=5,s={1,3,5,7,9},t={4,6,8,10,12}
+ * n=6,s="ACDBCB"
  * 
  * 输出：
  * 
- * 3
+ * ABCBCD
  * 
- * ({1,4},{5,8},{9,12})
+ * ({s="ACDBCB",T=""}->{s="CDBCB",T="A"}->{s="CDBC",T="AB"}->{s="CDB",T="ABC"}->
+ * {s="CD",T="ABCB"}->{s="D",T="ABCBC"}->{s="",T="ABCBCD"})
  * 
  * 
  * **思路：
  * 
- * 贪心算法：在可选工作中，优先选择结束时间最小的工作
+ * 贪心算法1(复杂，难实现)：优先取S开头或结尾较小字符的放入T。若首位相等，则递归比较下一个字符。
+ * 
+ * 贪心算法2(源于1，实现简单):按字典顺序比较S和S'(S的反串)。若S小，则取S的开头放入T；若S'小，则取S'的结尾放入T。<BR>
+ * （特别的：如果S=S'，则取那个都可以）
  * 
  * @author sunjie at 2017年5月26日
  *
  */
 public class Greedy3 {
     public static void main(String[] args) {
-        int[] s = new int[] { 1, 3, 5, 7, 9 };
-        int[] t = new int[] { 4, 6, 8, 10, 12 };
+        int n = 6;
+        String s = "ACDBCB";
+        char[] sChars = s.toCharArray();
+        String t = "";
+
+        // 定义两个游标，指向首和尾
+        int a = 0, b = sChars.length - 1;
+
+        while (a <= b) {
+            boolean isLeft = false;
+            // 逐位比较正串和反串
+            for (int i = 0; a + i < b; i++) {
+                if (sChars[a + i] < sChars[b - i]) {
+                    isLeft = true;
+                    break;
+                }
+                if (sChars[a + i] > sChars[b - i]) {
+                    isLeft = false;
+                    break;
+                }
+            }
+            if (isLeft) {
+                t += sChars[a++];
+            } else {
+                t += sChars[b--];
+            }
+        }
+
+        System.out.println("result:" + t);
     }
 }
