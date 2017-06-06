@@ -41,7 +41,7 @@ import java.util.Comparator;
  * +L2+Lother2<BR>
  * +L3+Lother3<BR>
  * +...<BR>
- * +Lothern-2<BR>
+ * +Ln-1+Lothern-1(L-L1-L2-...-Ln-1)<BR>
  * 
  * =L1+(L-L1)<BR>
  * +L2+(L-L1-L2)<BR>
