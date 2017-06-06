@@ -4,23 +4,7 @@ package com.arithmetic.greedy;
  * 
  * **题目：
  * 
- * 长度为N的字符串S，要构造一个长度为N的字符串T。起初，T是一个空串，随后反复进行如下任意操作：
  * 
- * -从S的头部移除一个字符，加到T的尾部<BR>
- * -从S的尾部移除一个字符，加到T的尾部<BR>
- * 
- * 目标是构造字典顺序（逐位自然比较）最小的T
- * 
- * 输入：
- * 
- * n=6,s="ACDBCB"
- * 
- * 输出：
- * 
- * ABCBCD
- * 
- * ({s="ACDBCB",T=""}->{s="CDBCB",T="A"}->{s="CDBC",T="AB"}->{s="CDB",T="ABC"}->
- * {s="CD",T="ABCB"}->{s="D",T="ABCBC"}->{s="",T="ABCBCD"})
  * 
  * 
  * **思路：

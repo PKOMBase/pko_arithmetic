@@ -14,7 +14,7 @@ package com.arithmetic.greedy;
  * 
  * 3
  * 
- * (7,20,50)
+ * (7,30,50)
  * 
  * 
  * **思路：
