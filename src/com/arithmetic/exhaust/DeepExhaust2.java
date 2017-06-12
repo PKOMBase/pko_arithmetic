@@ -38,11 +38,12 @@ package com.arithmetic.exhaust;
  * 
  * 时间复杂度O(8*N*M)
  * 
- * @author sunjie at 2017年5月31日
+ * @author sunjie at 2017年6月12日
  *
  */
 public class DeepExhaust2 {
     static final int n = 10, m = 12;
+
     static final char[][] field = new char[][] {/**/
     { 'W', '.', '.', '.', '.', '.', '.', '.', '.', 'W', 'W', '.' },/* 0 */
     { '.', 'W', 'W', 'W', '.', '.', '.', '.', '.', 'W', 'W', 'W' },/* 1 */
@@ -58,9 +59,9 @@ public class DeepExhaust2 {
 
     public static void main(String[] args) {
         int count = 0;
+
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
-                // 如果等于W，则开始进行dfs
                 if (field[i][j] == 'W') {
                     dfs(i, j);
                     count++;
@@ -71,10 +72,10 @@ public class DeepExhaust2 {
     }
 
     public static void dfs(int x, int y) {
-        // 将W替换为.
+        // 替换
         field[x][y] = '.';
 
-        // 取该位置八连通位置(x、y分别3种，共9种)，排除自己、.和院外位置
+        // 八连通
         for (int dx = -1; dx <= 1; dx++) {
             for (int dy = -1; dy <= 1; dy++) {
                 int newx = x + dx;
@@ -83,6 +84,7 @@ public class DeepExhaust2 {
                 if (newx == x && newy == y) {
                     continue;
                 }
+
                 // x坐标越界
                 if (newx < 0 || newx >= n) {
                     continue;
@@ -91,11 +93,11 @@ public class DeepExhaust2 {
                 if (newy < 0 || newy >= m) {
                     continue;
                 }
-                // 该位置已经是.
-                if (field[newx][newy] == '.') {
-                    continue;
+                // 如果找到W，则递归
+                if (field[newx][newy] == 'W') {
+                    dfs(newx, newy);
                 }
-                dfs(newx, newy);
+
             }
         }
     }

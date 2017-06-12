@@ -22,15 +22,18 @@ package com.arithmetic.exhaust;
  * 
  * 时间复杂度O(2^n)效率极低
  * 
- * @author sunjie at 2017年5月26日
+ * @author sunjie at 2017年6月12日
  *
  */
 public class DeepExhaust1 {
-    static final int n = 4, k = 11;
+
+    static final int n = 4, k = 17;
+
     static final int[] a = new int[] { 1, 2, 4, 7 };
 
     public static void main(String[] args) {
-        System.out.println(dfs(0, 0));
+        boolean dfs = dfs(0, 0);
+        System.out.println(dfs);
     }
 
     public static boolean dfs(int i, int sum) {
@@ -47,7 +50,7 @@ public class DeepExhaust1 {
             System.out.println("加：" + a[i]);
             return true;
         }
-        // 无论加还是不加均不能满足条件的
+        // 加不加都不等于k
         return false;
     }
 }
