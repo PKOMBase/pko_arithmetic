@@ -27,7 +27,6 @@ package com.arithmetic.dynamic;
  * 如果dp[i][j]已知（在前i件物品中，选出总重量不超过j的物品，价值总和的最大值），则dp[i+1][j]有两种情况，一是放入第i个物品（dp[i][
  * j-w[i]]+v [i]），一是不放入（dp[i][j]）， 取这两者最大的。
  * 
- * 
  * dp[i+1][j] = max(dp[i][j],dp[i][j-w[i]]+v[i])
  * 
  * 等同于：
