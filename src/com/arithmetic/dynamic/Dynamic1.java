@@ -88,7 +88,7 @@ public class Dynamic1 {
         else if (Dynamic1.w[i] > w) {
             return dfs(i + 1, w);
         }
-        // 放入、不放入两种情况都处理，取比较大的v
+        // 不放、放入两种情况都处理，取比较大的v
         else {
             return Math.max(dfs(i + 1, w), dfs(i + 1, w - Dynamic1.w[i]) + v[i]);
         }
