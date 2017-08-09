@@ -38,14 +38,16 @@ public class Greedy1 {
 
     public static void main(String[] args) {
         int count = 0;
-        // 从大面值开始，优先处理
+
         for (int i = v.length - 1; i >= 0; i--) {
-            // 使用硬币的数量
+            // 选取硬币的数量
             int t = Math.min(n / v[i], c[i]);
+
+            // 剩余需要凑的钱
             n = n - v[i] * t;
-            System.out.println("使用" + v[i] + "硬币" + t + "个");
-            count = count + t;
+            System.out.println("使用" + v[i] + "面值的硬币" + t + "个");
+            count += t;
         }
-        System.out.println(count);
+        System.out.println("count:" + count);
     }
 }
