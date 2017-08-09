@@ -32,16 +32,18 @@ package com.arithmetic.greedy;
  */
 public class Greedy1 {
 
+    private static int[] v = new int[] { 1, 5, 10, 50, 100, 500 };
+    private static int[] c = new int[] { 3, 2, 1, 3, 0, 2 };
+    private static int n = 620;
+
     public static void main(String[] args) {
-        int[] v = new int[] { 1, 5, 10, 50, 100, 500 };
-        int[] c = new int[] { 3, 2, 1, 3, 0, 2 };
-        int n = 620;
         int count = 0;
         // 从大面值开始，优先处理
         for (int i = v.length - 1; i >= 0; i--) {
             // 使用硬币的数量
             int t = Math.min(n / v[i], c[i]);
             n = n - v[i] * t;
+            System.out.println("使用" + v[i] + "硬币" + t + "个");
             count = count + t;
         }
         System.out.println(count);
