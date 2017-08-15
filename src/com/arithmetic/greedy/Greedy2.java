@@ -33,6 +33,12 @@ import java.util.Comparator;
  */
 public class Greedy2 {
 
+    private static int[] s = new int[] { 1, 3, 5, 7, 9 };
+
+    private static int[] t = new int[] { 10, 6, 8, 10, 12 };
+
+    private static Pair<Integer, Integer>[] pairs = new Pair[s.length];
+
     static class Pair<F, S> {
 
         private F first;
@@ -63,11 +69,7 @@ public class Greedy2 {
     }
 
     public static void main(String[] args) {
-        int[] s = new int[] { 1, 3, 5, 7, 9 };
-        int[] t = new int[] { 4, 6, 8, 10, 12 };
-        Pair<Integer, Integer>[] pairs = new Pair[s.length];
-
-        // 组装pair
+        // 组装pairs
         Pair<Integer, Integer> pair;
         for (int i = 0; i < t.length; i++) {
             pair = new Pair<Integer, Integer>();
@@ -77,7 +79,6 @@ public class Greedy2 {
         }
         // 排序
         Arrays.sort(pairs, new Comparator<Pair<Integer, Integer>>() {
-
             @Override
             public int compare(Pair<Integer, Integer> o1, Pair<Integer, Integer> o2) {
                 if (o1 == null || o2 == null) {
@@ -86,14 +87,11 @@ public class Greedy2 {
                 return o1.getSecond().compareTo(o2.getSecond());
             }
         });
-        for (Pair<Integer, Integer> pairTemp : pairs) {
-            System.out.println(pairTemp + ";");
-        }
-        // 优先取结束时间小的
+
         int count = 0;
-        int prevt = 0;// 上一个工作的结束时间
+        int prevt = 0;// 上一段的结束时间
         for (int i = 0; i < pairs.length; i++) {
-            // 如果上一个工作的结束时间大于等于 当前工作的开始时间，则不处理
+            // 判断有效工作段
             if (prevt >= pairs[i].getFirst()) {
                 continue;
             }
