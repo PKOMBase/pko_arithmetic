@@ -71,8 +71,8 @@ public class Greedy2 {
         Pair<Integer, Integer> pair;
         for (int i = 0; i < t.length; i++) {
             pair = new Pair<Integer, Integer>();
-            pair.setFirst(t[i]);
-            pair.setSecond(s[i]);
+            pair.setFirst(s[i]);
+            pair.setSecond(t[i]);
             pairs[i] = pair;
         }
         // 排序
@@ -83,7 +83,7 @@ public class Greedy2 {
                 if (o1 == null || o2 == null) {
                     return 0;
                 }
-                return o1.getFirst().compareTo(o2.getFirst());
+                return o1.getSecond().compareTo(o2.getSecond());
             }
         });
         for (Pair<Integer, Integer> pairTemp : pairs) {
@@ -94,10 +94,10 @@ public class Greedy2 {
         int prevt = 0;// 上一个工作的结束时间
         for (int i = 0; i < pairs.length; i++) {
             // 如果上一个工作的结束时间大于等于 当前工作的开始时间，则不处理
-            if (prevt >= pairs[i].getSecond()) {
+            if (prevt >= pairs[i].getFirst()) {
                 continue;
             }
-            prevt = pairs[i].getFirst();
+            prevt = pairs[i].getSecond();
             count++;
             System.out.println("result:" + pairs[i]);
         }
