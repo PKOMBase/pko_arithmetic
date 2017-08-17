@@ -33,7 +33,7 @@ public class Greedy4 {
 
     public static void main(String[] args) {
         int count = 0;
-        // 最左侧点
+        // 最左侧点的下标
         int i = 0;
         while (i < n) {
             int distance = x[i] + r;
