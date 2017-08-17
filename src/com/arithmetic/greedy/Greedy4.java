@@ -25,14 +25,14 @@ package com.arithmetic.greedy;
  *
  */
 public class Greedy4 {
+
+    private static int n = 6, r = 10;
+
+    // 需要有序，若无序，需要小到大排序
+    private static int[] x = new int[] { 1, 7, 15, 20, 30, 50 };
+
     public static void main(String[] args) {
-        int n = 6, r = 10;
-
-        // 需要有序，若无序，需要小到大排序
-        int[] x = new int[] { 1, 7, 15, 20, 30, 50 };
-
         int count = 0;
-
         // 最左侧点
         int i = 0;
         while (i < n) {
