@@ -33,21 +33,23 @@ public class Greedy4 {
 
     public static void main(String[] args) {
         int count = 0;
-        // 最左侧点的下标
+
+        // 遍历
         int i = 0;
         while (i < n) {
             int distance = x[i] + r;
-            // 找到离max最近的点,进行标记（标记下表应为p=i-1）
+            // 找距离distance且满足条件的最远点
             while (i < n && x[i] <= distance) {
                 i++;
             }
             System.out.println("p index:" + (i - 1) + ", value:" + x[i - 1]);
-            // 移除p=i-1右侧距离R内的点
+            // 移除p=i-1右侧距离r内的点
             int pDistance = x[i - 1] + r;
             while (i < n && x[i] <= pDistance) {
                 i++;
             }
             count++;
+            System.out.println("i:" + i);
         }
         System.out.println("result:" + count);
     }
