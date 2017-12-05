@@ -55,7 +55,7 @@ public class Dynamic5 {
         for (int i = 0; i < n; i++) {
             for (int j = 0; j <= k; j++) {
                 for (int x = 0; j >= a[i] * x && m[i] >= x; x++) {
-                    if (dp[i][j - a[i] * x]) {// 如果第三层循环已经找到true，则不再执行
+                    if (dp[i][j - a[i] * x]) {// 如果循环已经找到true，则不再执行
                         dp[i + 1][j] = true;
                         break;
                     } else {

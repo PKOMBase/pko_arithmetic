@@ -70,10 +70,12 @@ import java.util.Comparator;
  *
  */
 public class Greedy5 {
-    public static void main(String[] args) {
-        int n = 3;
 
-        Integer[] l = new Integer[] { 8, 5, 8 };
+    private static int n = 3;
+
+    private static Integer[] l = new Integer[] { 8, 5, 8, 3 };
+
+    public static void main(String[] args) {
 
         int sum = 0;
 
